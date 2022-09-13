@@ -6,6 +6,7 @@
 
 #include "hal_1.h"
 
+
 int helloApp(void)
 {
     printf("Hi from app 1\n");

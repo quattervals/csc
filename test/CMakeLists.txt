@@ -1,6 +1,5 @@
 message(STATUS "Enable testing with google test discovery")
 
-
 set(TEST_APP_NAME ${PROJECT_NAME}_test)
 
 # Following the instructions in https://google.github.io/googletest/quickstart-cmake.html
@@ -19,13 +18,12 @@ target_include_directories(${PROJECT_NAME}_test PUBLIC
 
 target_link_libraries(${TEST_APP_NAME} gtest libApp common)
 
-
 add_custom_target(${TEST_APP_NAME}_execution ALL
-                  DEPENDS ${TEST_APP_NAME})
+  DEPENDS ${TEST_APP_NAME})
+
 
 include(GoogleTest)
 gtest_discover_tests(${TEST_APP_NAME})
-
 
 add_custom_command(
   TARGET ${TEST_APP_NAME}_execution

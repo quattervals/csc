@@ -9,9 +9,10 @@ project(
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD 20) # target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(BUILD_GMOCK OFF)
 
 if(CMAKE_FIND_ROOT_PATH)
   message(STATUS "Appending install prefix to root path")
@@ -19,6 +20,8 @@ if(CMAKE_FIND_ROOT_PATH)
 
   # list(APPEND CMAKE_FIND_ROOT_PATH ${CMAKE_INSTALL_PREFIX})
 endif()
+
+
 
 # Get Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
 include(FetchContent)
