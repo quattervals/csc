@@ -8,7 +8,7 @@ extern "C" {
 // using ::testing::Invoke;
 // using ::testing::Return;
 
-class AppProcess : public ::testing::Test
+class SpyOnFoo : public ::testing::Test
 {
 protected:
   void SetUp() override {
@@ -20,16 +20,34 @@ protected:
   }
 };
 
-TEST_F(AppProcess, Foo_PathWithHighInput_Pin4IsHigh) {
+TEST_F(SpyOnFoo, Foo_PathWithHighInput_Pin4IsHigh) {
   app_process_foo(50);
 
   EXPECT_EQ(4, hal_io_out_fake.arg0_val);
   EXPECT_EQ(true, hal_io_out_fake.arg1_val);
 }
 
-TEST_F(AppProcess, Foo_PathWithLowInput_Pin4IsLow) {
+TEST_F(SpyOnFoo, Foo_PathWithLowInput_Pin4IsLow) {
   app_process_foo(-69);
 
   EXPECT_EQ(4, hal_io_out_fake.arg0_val);
   EXPECT_EQ(false, hal_io_out_fake.arg1_val);
+}
+
+class StubForBar : public ::testing::Test
+{};
+
+TEST_F(StubForBar, Bar_PathWithLeverHigh_BarIs9) {
+  hal_io_leverPosition_fake.return_val = 56;
+  EXPECT_EQ(9, app_process_bar());
+}
+
+TEST_F(StubForBar, Bar_PathWithLeverLow_BarIsMinus9) {
+  hal_io_leverPosition_fake.return_val = -33;
+  EXPECT_EQ(-9, app_process_bar());
+}
+
+TEST_F(StubForBar, Bar_PathWithLeverMid_BarIsZero) {
+  hal_io_leverPosition_fake.return_val = -4;
+  EXPECT_EQ(0, app_process_bar());
 }

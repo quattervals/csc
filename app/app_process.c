@@ -12,3 +12,15 @@ void app_process_foo(int input) {
     hal_io_out(4, false);
   }
 }
+
+int app_process_bar(void) {
+  if (hal_io_leverPosition() > 42) {
+    return 9;
+  }
+  else if (hal_io_leverPosition() < -23) {
+    return -9;
+  }
+  else {
+    return 0;
+  }
+}
