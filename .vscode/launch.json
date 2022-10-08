@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "debug Tutorial",
+            "name": "ESE",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Tutorial",
+            "program": "${workspaceFolder}/build/ese",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
@@ -16,17 +16,17 @@
                 {
                     "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
-                    "ignoreFailures": false
+                    "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "buildtutorial",
+            "preLaunchTask": "buildall",
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
-            "name": "debug Test Tutorial",
+            "name": "Test ESE App",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/test/Tutorial_test",
+            "program": "${workspaceFolder}/build/test/app/ese_app_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -40,7 +40,7 @@
                     "ignoreFailures": false
                 }
             ],
-            "preLaunchTask": "buildtutorial",
+            "preLaunchTask": "buildall",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]

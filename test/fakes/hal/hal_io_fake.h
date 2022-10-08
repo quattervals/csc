@@ -8,3 +8,4 @@ DECLARE_FAKE_VALUE_FUNC(int, hal_io_leverPosition)
 
 // todo: cleanup for fakes
 // cleanup environment
+void hal_io_fake_reset(void);

@@ -11,12 +11,10 @@ extern "C" {
 class SpyOnFoo : public ::testing::Test
 {
 protected:
-  void SetUp() override {
-    std::cout << "Setting up App Process Test" << std::endl;
-  }
+  void SetUp() override {}
 
   void TearDown() override {
-    std::cout << "Teardown up App Process Test" << std::endl;
+    hal_io_fake_reset();
   }
 };
 
@@ -35,7 +33,11 @@ TEST_F(SpyOnFoo, Foo_PathWithLowInput_Pin4IsLow) {
 }
 
 class StubForBar : public ::testing::Test
-{};
+{
+  void TearDown() override {
+    hal_io_fake_reset();
+  }
+};
 
 TEST_F(StubForBar, Bar_PathWithLeverHigh_BarIs9) {
   hal_io_leverPosition_fake.return_val = 56;
