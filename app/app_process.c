@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 #include "app_process.h"
+#include "app_measurement.h"
 #include "hal_io.h"
 
 void app_process_foo(int input) {
@@ -23,4 +24,15 @@ int app_process_bar(void) {
   else {
     return 0;
   }
+}
+
+//todo show use in production code
+bool app_process_algorithmFix(int threshold) {
+  const int scaleFactor = 42;
+  return app_measurement_temperatureMeasurement(scaleFactor) > threshold;
+}
+
+bool app_process_algorithmDi(TemperatureMeasurement temperatureProcessingFunction, int threshold) {
+  const int scaleFactor = 42;
+  return temperatureProcessingFunction(scaleFactor) > threshold;
 }

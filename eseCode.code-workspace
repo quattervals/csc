@@ -50,7 +50,9 @@
 			"fstream": "cpp",
 			"sstream": "cpp",
 			"bit": "cpp",
-			"stdint.h": "c"
+			"stdint.h": "c",
+			"stdbool.h": "c",
+			"app_measurement.h": "c"
 		},
 		"C_Cpp.formatting": "clangFormat"
 	}

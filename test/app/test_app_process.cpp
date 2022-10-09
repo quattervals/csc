@@ -34,6 +34,7 @@ TEST_F(SpyOnFoo, Foo_PathWithLowInput_Pin4IsLow) {
 
 class StubForBar : public ::testing::Test
 {
+protected:
   void TearDown() override {
     hal_io_fake_reset();
   }
@@ -52,4 +53,47 @@ TEST_F(StubForBar, Bar_PathWithLeverLow_BarIsMinus9) {
 TEST_F(StubForBar, Bar_PathWithLeverMid_BarIsZero) {
   hal_io_leverPosition_fake.return_val = -4;
   EXPECT_EQ(0, app_process_bar());
+}
+
+namespace {
+int testHighTemperatureMeasurement(int scaleFactor) {
+  return 500;
+};
+
+int testLowTemperatureMeasurement(int scaleFactor) {
+  return -5;
+};
+FAKE_VALUE_FUNC(int, testFlexibleTemperatureMeasurement, int)
+}
+
+class DiForAlgorithm : public ::testing::Test
+{
+protected:
+  const uint32_t threshold = 5;
+};
+
+TEST_F(DiForAlgorithm, AlgorithmFix_MeasuredTemperatureFixed_SemiUsefulTest) {
+  EXPECT_EQ(true, app_process_algorithmFix(threshold));
+}
+
+TEST_F(DiForAlgorithm, AlgorithmDi_MeasuredHighTemperature_IsAboveThreshold) {
+  EXPECT_EQ(true, app_process_algorithmDi(testHighTemperatureMeasurement, threshold));
+}
+
+TEST_F(DiForAlgorithm, AlgorithmDi_MeasuredLowTemperature_IsAboveThreshold) {
+  EXPECT_EQ(false, app_process_algorithmDi(testLowTemperatureMeasurement, threshold));
+}
+
+TEST_F(DiForAlgorithm, AlgorithmDi_FlexibleTemperatureFffMeasurementHighTemperature_IsAboveThreshold) {
+  testFlexibleTemperatureMeasurement_fake.return_val = 500;
+  EXPECT_EQ(true, app_process_algorithmDi(testFlexibleTemperatureMeasurement, threshold));
+}
+
+TEST_F(DiForAlgorithm, AlgorithmDi_FlexibleTemperatureLambdaMeasurementLowTemperature_IsBelowThreshold) {
+  EXPECT_EQ(false,
+            app_process_algorithmDi(
+              [](int scaleFactor) {
+                return -9;
+              },
+              threshold));
 }
