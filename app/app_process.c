@@ -27,7 +27,6 @@ int app_process_bar(void) {
   }
 }
 
-//todo show use in production code
 bool app_process_algorithmFix(int threshold) {
   const int scaleFactor = 42;
   return app_measurement_temperatureMeasurement(scaleFactor) > threshold;

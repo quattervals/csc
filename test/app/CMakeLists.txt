@@ -5,9 +5,7 @@ set(TEST_APP_NAME ${PROJECT_NAME}_app_test)
 # Following the instructions in https://google.github.io/googletest/quickstart-cmake.html
 add_executable(${TEST_APP_NAME}
   test_app_main.cpp
-  test_app_1.cpp
   test_app_process.cpp
-  ${PROJECT_SOURCE_DIR}/test/fakes/hal/hal_1_fake.c
   ${PROJECT_SOURCE_DIR}/test/fakes/hal/hal_io_fake.c
   ${PROJECT_SOURCE_DIR}/test/fakes/os/os_rtos_fake.c
   ${PROJECT_SOURCE_DIR}/test/lib/fff.h

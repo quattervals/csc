@@ -4,7 +4,7 @@ project(
   ese
   LANGUAGES CXX C
   VERSION 0.1
-  DESCRIPTION "Gtest with C")
+  DESCRIPTION "ESE-Conference: Testing microcontroller FW in C")
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -26,11 +26,9 @@ endif()
 if(CMAKE_FIND_ROOT_PATH)
   message(STATUS "Appending install prefix to root path")
   list(APPEND CMAKE_FIND_ROOT_PATH ${PROJECT_SOURCE_DIR})
-
-  # list(APPEND CMAKE_FIND_ROOT_PATH ${CMAKE_INSTALL_PREFIX})
 endif()
 
-# Get Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
+# Include Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
 include(FetchContent)
 FetchContent_Declare(GoogleTest GIT_REPOSITORY https://github.com/google/googletest.git GIT_TAG release-1.12.0)
 FetchContent_MakeAvailable(googletest)

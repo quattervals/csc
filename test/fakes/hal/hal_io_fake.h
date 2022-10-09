@@ -6,6 +6,4 @@
 DECLARE_FAKE_VOID_FUNC(hal_io_out, uint32_t, bool)
 DECLARE_FAKE_VALUE_FUNC(int, hal_io_leverPosition)
 
-// todo: cleanup for fakes
-// cleanup environment
 void hal_io_fake_reset(void);

@@ -7,9 +7,6 @@ extern "C" {
 #include "fakes/os/os_rtos_fake.h"
 }
 
-// using ::testing::Invoke;
-// using ::testing::Return;
-
 class SpyOnFoo : public ::testing::Test
 {
 protected:
