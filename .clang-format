@@ -1,0 +1,171 @@
+
+# Sprache
+Language: Cpp
+Standard: c++20
+
+# Dimensionen
+ColumnLimit: 120
+IndentWidth: 2
+MaxEmptyLinesToKeep: 1
+
+AlignAfterOpenBracket: Align
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments: false
+AlignConsecutiveBitFields: true
+AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: true
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: false
+
+AllowAllArgumentsOnNextLine: false
+# AllowAllConstructorInitializersOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
+
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+
+# AttributeMacros: ['__makro0', '__makro1', '__makro2']
+
+BinPackArguments: false
+BinPackParameters: false
+
+BitFieldColonSpacing: Before
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: true
+  AfterControlStatement: Never
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+# BreakAfterJavaFieldAnnotations: false
+
+BreakBeforeBinaryOperators: None
+BreakBeforeInheritanceComma: false
+BreakBeforeTernaryOperators: false
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterComma
+# BreakStringLiterals: false
+
+CommentPragmas: '^ \\.+'
+
+CompactNamespaces: false
+
+# ConstructorInitializerIndentWidth:
+
+ContinuationIndentWidth: 2
+
+Cpp11BracedListStyle: false
+
+DeriveLineEnding: false
+DerivePointerAlignment: false
+
+# DisableFormat: false
+
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: LogicalBlock
+ExperimentalAutoDetectBinPacking: false
+
+FixNamespaceComments: false
+
+ForEachMacros: ["TEST_GROUP"] # Workaround to force correct formatting of cpputest TEST_GROUP
+
+# IncludeIsMainRegex:
+# IncludeIsMainSourceRegex:
+
+IndentAccessModifiers: false
+IndentCaseBlocks: false
+IndentCaseLabels: true
+IndentExternBlock: NoIndent
+IndentGotoLabels: true
+IndentPPDirectives: BeforeHash
+IndentRequires: true
+IndentWrappedFunctionNames: true
+
+# InsertTrailingCommas: Wrapped
+
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+LambdaBodyIndentation: Signature
+
+# MacroBlockBegin (std::string)
+# MacroBlockEnd (std::string)
+
+NamespaceIndentation: Inner
+# NamespaceMacros (std::vector<std::string>)
+
+ObjCBinPackProtocolList: Auto
+ObjCBlockIndentWidth: 2
+# ObjCBreakBeforeNestedBlockParam: false
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: true
+
+PackConstructorInitializers: CurrentLine
+PointerAlignment: Left
+
+QualifierAlignment: Leave
+
+ReferenceAlignment: Left
+ReflowComments: false
+
+SeparateDefinitionBlocks: Always
+
+SortIncludes: false
+SortUsingDeclarations: true
+
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: true
+SpaceAfterTemplateKeyword: true
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatementsExceptControlMacros
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 3
+SpacesInAngles: Never
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# StatementMacros (std::vector<std::string>)
+
+TabWidth: 2
+
+# TypenameMacros (std::vector<std::string>)
+
+UseCRLF: false
+UseTab: Never
+# WhitespaceSensitiveMacros (std::vector<std::string>)

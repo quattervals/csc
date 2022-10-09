@@ -2,7 +2,8 @@ add_library(libApp OBJECT)
 
 target_sources(
   libApp PRIVATE
-  app_1.c
+  app_process.c
+  app_measurement.c
 )
 
 

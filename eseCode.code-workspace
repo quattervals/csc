@@ -49,7 +49,11 @@
 			"utility": "cpp",
 			"fstream": "cpp",
 			"sstream": "cpp",
-			"bit": "cpp"
-		}
+			"bit": "cpp",
+			"stdint.h": "c",
+			"stdbool.h": "c",
+			"app_measurement.h": "c"
+		},
+		"C_Cpp.formatting": "clangFormat"
 	}
 }

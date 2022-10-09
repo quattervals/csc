@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "Host",
+      "displayName": "Linux",
+      "description": "Building for host with unit tests",
+      "binaryDir": "${sourceDir}/build",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "/bin/gcc",
+        "CMAKE_CXX_COMPILER": "/bin/g++"
+      }
+    }
+  ]
+}

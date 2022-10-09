@@ -3,17 +3,22 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "buildtutorial",
-            "command": "make",
-            "args": [
-            ],
+            "label": "buildall",
+            "command": "cmake --build .",
+            "args": [],
             "options": {
                 "cwd": "${workspaceFolder}/build"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}/build"
+                ]
+            },
             "group": {
-              "kind": "build",
-              "isDefault": true
+                "kind": "build",
+                "isDefault": true
             }
         }
     ]
