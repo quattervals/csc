@@ -11,3 +11,7 @@ int app_process_bar(void);
 bool app_process_algorithmFix(int threshold);
 
 bool app_process_algorithmDi(TemperatureMeasurement temperatureProcessingFunction, int threshold);
+
+void app_process_setup(void);
+
+int app_process_callback(void);

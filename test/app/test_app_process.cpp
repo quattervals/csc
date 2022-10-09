@@ -2,7 +2,9 @@
 
 extern "C" {
 #include "app_process.h"
+#include "os_rtos.h"
 #include "fakes/hal/hal_io_fake.h"
+#include "fakes/os/os_rtos_fake.h"
 }
 
 // using ::testing::Invoke;
@@ -96,4 +98,27 @@ TEST_F(DiForAlgorithm, AlgorithmDi_FlexibleTemperatureLambdaMeasurementLowTemper
                 return -9;
               },
               threshold));
+}
+
+class FakingOs : public ::testing::Test
+{};
+
+namespace {
+static TaskCallback capturedCallback = nullptr;
+
+int testCreateTask(TaskCallback taskCallback) {
+  capturedCallback = taskCallback;
+  return 0;
+}
+
+int testFakeOsRunningCreatedTask(void) {
+  return capturedCallback();
+}
+}
+
+TEST_F(FakingOs, FakeOsFunction_RunCallbackOfCreatedTask_ProductionCallbackExecuted) {
+  os_rtos_createTask_fake.custom_fake = testCreateTask;
+  app_process_setup();
+
+  EXPECT_EQ(77, testFakeOsRunningCreatedTask());
 }

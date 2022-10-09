@@ -4,6 +4,7 @@
 #include "app_process.h"
 #include "app_measurement.h"
 #include "hal_io.h"
+#include "os_rtos.h"
 
 void app_process_foo(int input) {
   if (input >= 42) {
@@ -35,4 +36,12 @@ bool app_process_algorithmFix(int threshold) {
 bool app_process_algorithmDi(TemperatureMeasurement temperatureProcessingFunction, int threshold) {
   const int scaleFactor = 42;
   return temperatureProcessingFunction(scaleFactor) > threshold;
+}
+
+void app_process_setup(void) {
+  const int taskHandle = os_rtos_createTask(app_process_callback);
+}
+
+int app_process_callback(void) {
+  return 77;
 }

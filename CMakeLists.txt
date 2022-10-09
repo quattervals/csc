@@ -30,13 +30,10 @@ if(CMAKE_FIND_ROOT_PATH)
   # list(APPEND CMAKE_FIND_ROOT_PATH ${CMAKE_INSTALL_PREFIX})
 endif()
 
-
-
 # Get Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
 include(FetchContent)
 FetchContent_Declare(GoogleTest GIT_REPOSITORY https://github.com/google/googletest.git GIT_TAG release-1.12.0)
 FetchContent_MakeAvailable(googletest)
-
 
 add_library(common INTERFACE)
 
@@ -44,15 +41,16 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/app)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/hal)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/os)
 
 add_executable(${PROJECT_NAME} target.c)
 
 target_include_directories(common INTERFACE
   ${PROJECT_SOURCE_DIR}/app/
   ${PROJECT_SOURCE_DIR}/hal/
+  ${PROJECT_SOURCE_DIR}/os/
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC libApp libHal common)
-
+target_link_libraries(${PROJECT_NAME} PUBLIC libApp libHal libOs common)
 
 enable_testing()
 add_subdirectory(test)

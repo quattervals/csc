@@ -9,6 +9,7 @@ add_executable(${TEST_APP_NAME}
   test_app_process.cpp
   ${PROJECT_SOURCE_DIR}/test/fakes/hal/hal_1_fake.c
   ${PROJECT_SOURCE_DIR}/test/fakes/hal/hal_io_fake.c
+  ${PROJECT_SOURCE_DIR}/test/fakes/os/os_rtos_fake.c
   ${PROJECT_SOURCE_DIR}/test/lib/fff.h
 )
 
