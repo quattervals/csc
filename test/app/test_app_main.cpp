@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
-#include "lib/fff.h"
+
+#include "lib/fff_wrapper.h"
 
 DEFINE_FFF_GLOBALS
 

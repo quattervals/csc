@@ -52,8 +52,26 @@
 			"bit": "cpp",
 			"stdint.h": "c",
 			"stdbool.h": "c",
-			"app_measurement.h": "c"
+			"app_measurement.h": "c",
+			"ranges": "cpp",
+			"ratio": "cpp",
+			"variant": "cpp",
+			"thread": "cpp",
+			"ctime": "cpp",
+			"any": "cpp",
+			"chrono": "cpp",
+			"compare": "cpp",
+			"concepts": "cpp",
+			"condition_variable": "cpp",
+			"map": "cpp",
+			"set": "cpp",
+			"iomanip": "cpp",
+			"mutex": "cpp",
+			"numbers": "cpp",
+			"stop_token": "cpp",
+			"cinttypes": "cpp"
 		},
-		"C_Cpp.formatting": "clangFormat"
+		"C_Cpp.formatting": "clangFormat",
+		"editor.formatOnSave": true
 	}
 }
