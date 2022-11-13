@@ -62,6 +62,7 @@ int testHighTemperatureMeasurement(int scaleFactor) {
 int testLowTemperatureMeasurement(int scaleFactor) {
   return -5;
 };
+
 FAKE_VALUE_FUNC(int, testFlexibleTemperatureMeasurement, int)
 }
 
@@ -79,7 +80,7 @@ TEST_F(DiForAlgorithm, AlgorithmDi_MeasuredHighTemperature_IsAboveThreshold) {
   EXPECT_EQ(true, app_process_algorithmDi(testHighTemperatureMeasurement, threshold));
 }
 
-TEST_F(DiForAlgorithm, AlgorithmDi_MeasuredLowTemperature_IsAboveThreshold) {
+TEST_F(DiForAlgorithm, AlgorithmDi_MeasuredLowTemperature_IsBelowThreshold) {
   EXPECT_EQ(false, app_process_algorithmDi(testLowTemperatureMeasurement, threshold));
 }
 
