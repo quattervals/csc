@@ -2,7 +2,7 @@ message(STATUS "Enable testing with google test discovery")
 
 set(TEST_APP_NAME ${PROJECT_NAME}_app_test)
 
-# Following the instructions in https://google.github.io/googletest/quickstart-cmake.html
+# Instructions in https://google.github.io/googletest/quickstart-cmake.html
 add_executable(${TEST_APP_NAME}
   test_app_main.cpp
   test_app_process.cpp
