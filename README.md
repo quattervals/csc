@@ -12,3 +12,15 @@ Demo of techniques how to split convoluted C-code in logical libraries.
 - stubbing
 - faking
 
+## Prerequisites
+```
+sudo apt install build-essential gcc pkg-config cmake
+```
+
+## Compile and Run
+Configure: `cmake -B build`
+
+Build: ` cmake --build build`
+- Tests are run after every build
+
+Run tests: `ctest --test-dir build`

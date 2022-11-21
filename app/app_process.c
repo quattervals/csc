@@ -11,7 +11,7 @@ void app_process_foo(int input) {
     hal_io_out(4, true);
   }
   else {
-    hal_io_out(4, false);
+    hal_io_out(56, false);
   }
 }
 

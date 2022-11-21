@@ -27,7 +27,7 @@ TEST_F(SpyOnFoo, Foo_PathWithHighInput_Pin4IsHigh) {
 TEST_F(SpyOnFoo, Foo_PathWithLowInput_Pin4IsLow) {
   app_process_foo(-69);
 
-  EXPECT_EQ(4, hal_io_out_fake.arg0_val);
+  EXPECT_EQ(56, hal_io_out_fake.arg0_val);
   EXPECT_EQ(false, hal_io_out_fake.arg1_val);
 }
 
