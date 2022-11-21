@@ -2,7 +2,7 @@ add_library(libHal OBJECT)
 
 target_sources(
   libHal PRIVATE
-  ${PROJECT_SOURCE_DIR}/hal/hal_io.c
+  hal_io.c
 )
 
 target_link_libraries(libHal PUBLIC common)

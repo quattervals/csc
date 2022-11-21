@@ -6,6 +6,5 @@
 
 int os_rtos_createTask(TaskCallback taskCallback) {
   printf("OS: Create RTOS Task\n");
-  const int taskHandle = 123;
-  return taskHandle;
+  return 123;
 }

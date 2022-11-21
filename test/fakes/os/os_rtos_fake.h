@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-#include <stdbool.h>
+
 #include "lib/fff.h"
 #include "os_rtos.h"
 
