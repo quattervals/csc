@@ -1,10 +1,11 @@
 #include "gtest/gtest.h"
 
+#include "fakes/hal/hal_io_fake.hpp"
+#include "fakes/os/os_rtos_fake.hpp"
+
 extern "C" {
 #include "app_process.h"
 #include "os_rtos.h"
-#include "fakes/hal/hal_io_fake.h"
-#include "fakes/os/os_rtos_fake.h"
 }
 
 class SpyOnFoo : public ::testing::Test
@@ -13,6 +14,7 @@ protected:
   void SetUp() override {}
 
   void TearDown() override {
+    os_rtos_fake_reset();
     hal_io_fake_reset();
   }
 };
