@@ -44,3 +44,8 @@ void app_process_setup(void) {
 int app_process_callback(void) {
   return 77;
 }
+
+uint32_t app_process_konstantin(void) {
+  uint32_t val = 99;
+  return hal_io_konst(&val);
+}

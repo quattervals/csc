@@ -99,3 +99,11 @@ TEST_F(FakingWithStdFunction, bind_member_function_to_custom_fake_pass_object_by
   EXPECT_EQ(56, hal_io.m_pinNr);
   EXPECT_EQ(false, hal_io.m_pinState);
 }
+
+TEST_F(FakingWithStdFunction, fake_const_const_with_const) {
+  hal_io_konst_fake.custom_fake = [](const uint32_t* i_val) {
+    return *i_val + 99;
+  };
+
+  EXPECT_EQ(198, app_process_konstantin());
+}

@@ -15,3 +15,5 @@ bool app_process_algorithmDi(TemperatureMeasurement temperatureProcessingFunctio
 void app_process_setup(void);
 
 int app_process_callback(void);
+
+uint32_t app_process_konstantin(void);
