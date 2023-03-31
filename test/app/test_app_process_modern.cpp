@@ -74,7 +74,7 @@ TEST_F(FakingWithStdFunction, const_lambda_with_capture) {
   int a_number{ 7 };
   int res = some_foo(16, &a_number);
 
-  EXPECT_EQ(to_be_captured, a_number);
+  EXPECT_EQ(to_be_captured, a_number + 5 - 5);
 }
 
 namespace {
