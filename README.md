@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Linux Builds](https://github.com/quattervals/ese/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/quattervals/ese/actions/workflows/build_and_test.yml)
+[![Linux Builds](https://github.com/quattervals/csc/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/quattervals/csc/actions/workflows/build_and_test.yml)
 
 
 # Conference sample code: Testing microcontroller FW in C
@@ -15,7 +15,7 @@ Demo of techniques how to split convoluted C-code in logical libraries and thus 
 
 ## Prerequisites
 ```
-sudo apt install build-essential gcc pkg-config cmake
+sudo apt install build-essential gcc pkg-config cmake ccache
 ```
 
 ## Compile and Run
