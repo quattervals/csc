@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 
 project(
-  ese
+  csc
   LANGUAGES CXX C
   VERSION 0.1
-  DESCRIPTION "ESE-Conference: Testing microcontroller FW in C")
+  DESCRIPTION "Conference Sample Code: Testing microcontroller FW in C")
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -27,6 +27,18 @@ if(CMAKE_FIND_ROOT_PATH)
   message(STATUS "Appending install prefix to root path")
   list(APPEND CMAKE_FIND_ROOT_PATH ${PROJECT_SOURCE_DIR})
 endif()
+
+# Caching to speedup compile time
+# need to apt install ccache
+find_program(CCACHE_PROGRAM "ccache")
+
+if(CCACHE_PROGRAM)
+  set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+  message(STATUS "Using ${CCACHE_PROGRAM}")
+else()
+  message(NOTICE "${CCACHE_PROGRAM} not found. Install ${CCACHE_PROGRAM} for faster builds.")
+endif(CCACHE_PROGRAM)
 
 # Include Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
 include(FetchContent)
