@@ -1,4 +1,7 @@
 {
     "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.inlayHints.parameterNames.enabled": true,
+    "C_Cpp.intelliSenseEngine": "default",
     "editor.formatOnSave": true,
+    "editor.inlayHints.fontSize": 12
 }

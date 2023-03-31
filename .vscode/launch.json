@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "ESE",
+            "name": "CSC",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/ese",
+            "program": "${workspaceFolder}/build/csc",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build",
@@ -23,10 +23,10 @@
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
-            "name": "Test ESE App",
+            "name": "Test CSC App",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/test/app/ese_app_test",
+            "program": "${workspaceFolder}/build/test/app/csc_app_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
