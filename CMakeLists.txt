@@ -28,6 +28,18 @@ if(CMAKE_FIND_ROOT_PATH)
   list(APPEND CMAKE_FIND_ROOT_PATH ${PROJECT_SOURCE_DIR})
 endif()
 
+# Caching to speedup compile time
+# need to apt install ccache
+find_program(CCACHE_PROGRAM "ccache")
+
+if(CCACHE_PROGRAM)
+  set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+  message(STATUS "Using ${CCACHE_PROGRAM}")
+else()
+  message(NOTICE "${CCACHE_PROGRAM} not found. Install ${CCACHE_PROGRAM} for faster builds.")
+endif(CCACHE_PROGRAM)
+
 # Include Goolge Test. Instructions from here https://google.github.io/googletest/quickstart-cmake.html
 include(FetchContent)
 FetchContent_Declare(GoogleTest GIT_REPOSITORY https://github.com/google/googletest.git GIT_TAG release-1.12.0)
