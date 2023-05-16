@@ -9,7 +9,7 @@ extern "C" {
 }
 
 namespace {
-class Number
+class TestNumber
 {
 private:
   int m_number{ 0 };
@@ -21,11 +21,11 @@ public:
   }
 };
 
-class HAL_IO
+class TestHalIo
 {
 public:
-  HAL_IO(){};
-  HAL_IO(const HAL_IO&) = delete;   // this way we get a warning when we forget to bind by reference
+  TestHalIo(){};
+  TestHalIo(const TestHalIo&) = delete;   // this way we get a warning when we forget to bind by reference
 
   bool m_pinState{ false };
   uint32_t m_pinNr{ 0 };
@@ -48,7 +48,7 @@ protected:
   }
 };
 
-TEST_F(FakingWithStdFunction, lambda_with_capture) {
+TEST_F(FakingWithStdFunction, Callback_CustomFakeWritesToValuePassedInCapure_GetCallbackFromFunctionUnderTest) {
   TaskCallback thecallback = nullptr;
   os_rtos_createTask_fake.custom_fake = [&thecallback](TaskCallback taskCallback) {
     thecallback = taskCallback;
@@ -60,19 +60,20 @@ TEST_F(FakingWithStdFunction, lambda_with_capture) {
 }
 
 namespace {
-FAKE_VALUE_FUNC(int, some_foo, int, const int*)
+FAKE_VALUE_FUNC(int, test_foo, int, const int*)
 }
 
-TEST_F(FakingWithStdFunction, const_lambda_with_capture) {
+TEST_F(FakingWithStdFunction,
+       WorkWithPointers_CustomFakeWritesToValuePassedInCapure_ValueCapturedFromFunctionUnderTest) {
   int to_be_captured{ 5 };
 
-  some_foo_fake.custom_fake = [&to_be_captured](int param_1, const int* param_2) {
+  test_foo_fake.custom_fake = [&to_be_captured](int param_1, const int* param_2) {
     to_be_captured = *param_2;
     return 99;
   };
 
   int a_number{ 7 };
-  int res = some_foo(16, &a_number);
+  int res = test_foo(16, &a_number);
 
   EXPECT_EQ(to_be_captured, a_number);
 }
@@ -81,18 +82,19 @@ namespace {
 FAKE_VALUE_FUNC(int, add_to_number, int)
 }
 
-TEST_F(FakingWithStdFunction, bind_member_function_to_custom_fake) {
-  Number zahl;
+TEST_F(FakingWithStdFunction, Bind_BindMemberFunctionsToCustomFake_CustomFakeExecutedAsIfItWasANormalFunction) {
+  TestNumber zahl;
 
-  add_to_number_fake.custom_fake = std::bind(&Number::add_to_number, &zahl, std::placeholders::_1);
+  add_to_number_fake.custom_fake = std::bind(&TestNumber::add_to_number, &zahl, std::placeholders::_1);
 
   EXPECT_EQ(44, add_to_number(44));
 }
 
-TEST_F(FakingWithStdFunction, bind_member_function_to_custom_fake_pass_object_by_reference) {
-  HAL_IO hal_io;
+TEST_F(FakingWithStdFunction, Bind_BindMemberFunctionsToCustomFake_CCodeUnderTestCallsCppCustomFake) {
+  TestHalIo hal_io;
 
-  hal_io_out_fake.custom_fake = std::bind(&HAL_IO::hal_io_out, &hal_io, std::placeholders::_1, std::placeholders::_2);
+  hal_io_out_fake.custom_fake =
+    std::bind(&TestHalIo::hal_io_out, &hal_io, std::placeholders::_1, std::placeholders::_2);
 
   app_process_foo(-69);
 

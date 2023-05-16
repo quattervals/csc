@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {},
+		"C_Cpp.formatting": "clangFormat",
+		"editor.formatOnSave": true
+	}
+}
