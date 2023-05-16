@@ -5,6 +5,7 @@
 # Conference sample code: Testing microcontroller FW in C
 
 - Code under test in C
+- Test code is C++
 - Test Doubles with FFF
 - Testing Framework is google test
 
